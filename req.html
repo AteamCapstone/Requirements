@@ -1,13 +1,13 @@
 <h1>Requirements</h1>
-The following requirements for the Robot Butler project are the necessary constraints, functions, and behavior that the finished system needs to fulfill to be deemed successful. Several of the following requirements have a rationale underneath in italics to explain the reasoning for the requirement or the reason for the figure in which the requirement is based. There are also underlined words in several of the requirements. These words are those that are defined in the glossary.  These words also have a hyperlink for electronic versions of this document.
+
 <h2>Physical Constraints</h2>
-This robot is intended to operate in an office hallway. It will not be capable of using stairs or elevators. It will also not be capable of traveling up steep slopes. The robot will be operating in a hallway with some expected human traffic and should be designed to not be obstructive to them. The robot will operate throughout the work day, requiring  a power source that will last for several hours and recharge overnight. 
+This robot is intended to operate in an office hallway. It will not be capable of using stairs or elevators. It will also not be capable of traveling up steep slopes. The robot will be operating in a hallway with some expected human traffic and should be designed to not be obstructive to them. The robot will operate throughout the work day, requiring a power source that will last for several hours and recharge overnight. 
 <ol>
-	<li>The robot shall never emit more than 60 dBA at a distance of 1.5 meters from the robot.
-			<br/> &#2193;	<i>	60dBA is roughly equivalent to the environmental noise level of a normal conversation[1]. This was chosen to prevent disturbing faculty members and students.  </i>
+	<li>The robot shall never emit more than 60 dBA measured at a distance of 1.5 meters from the robot.
+			<br/>&#2193;	<i>	60dBA is roughly equivalent to the environmental noise level of a normal conversation[1]. This was chosen to prevent disturbing faculty members and students.  </i>
 	<li>The robot shall not require external power while operating.
 	<li>The robot shall have an energy storage system to provide energy for operation.
-	<li>The energy storage system shall last for a minimum of four hours of constant movement.
+	<li>The energy storage system shall power the motors operating at free current for a minimum of four hours.
 			<br/>&#2193;	<i>	This is a high estimate for the amount of operation needed each day. This amount will most likely be needed during the testing phase.</i>
 	<li>The energy storage system shall last for a minimum of eight hours of no movement.
 			<br/>&#2193;	<i>	The robot will be needed to operate roughly 9am to 5pm, or a normal workday, and this excess should account for movement.</i>
@@ -17,38 +17,41 @@ This robot is intended to operate in an office hallway. It will not be capable o
 			<br/>&#2193;	<i>	The user will need a way to interact with the robot.  The interface should be above one meter so that an average human does not have to bend over to use it. An average human is 1.778 meters tall according to the CDC [2].</i>
 	<li>The robot shall not exceed 1.3 meters at its largest vertical dimension. 
 			<br/>&#2193;	<i>	The user should be able to see over the robot. Also, the interface should not be above 1.3 meters so that an average human does not have to jump to use it.</i>
+
 	<li>The robot shall not exceed 80 centimeters at its largest horizontal dimension.
 			<br/>&#2193;	<i>	The robot should be able to fit through the hallway and not obstruct it. This will also make transportation easier as it will fit through doors.</i>
-	<li>The robot shall not exceed a weight of 25 kilograms.
+	<li>The robot shall not exceed a mass of 25 kilograms.
 			<br/>&#2193;	<i>	The robot should be portable and can be picked up without special equipment.</i>
 </ol>
 
 <h2>Faculty Use</h2>
-	The robot and the faculty information server should both contain a list of faculty information containing names, availability, and courses taught.  The information about each faculty member will be readily available to the user on the robot’s interface. The robot and server will be separate from one another, but the robot will continuously update its information form the server. Faculty can change their schedules and information on their office PC. 
-<ol><li>The system shall have a server to store faculty information.
-<li>The faculty information server shall not be physical connected to the robot. 
-<li>The robot shall be capable of wirelessly accessing the faculty information server.
-<li>The system shall store a list of faculty members who have offices within the predefined area of operation.
-<li>The system shall store an email address for each faculty member. 
-<li>The system shall utilize a third-party schedule sharing software to maintain a schedule of availability for each faculty member.
-<li>The system shall store a list of courses taught for each faculty member.
-<li>Faculty member information shall be stored on a server that is not attached to the robot.
-<li>The robot shall maintain a local copy of faculty information
-<li>The robot should update its local copy of faculty information once an hour while in operation. 
-<li>The faculty information server shall receive and store schedule changes from the faculty member’s office PC.
-<li>The faculty information server should receive and store schedule changes from wireless connections. 
+	The robot should contain a list of faculty information containing names, availability, and courses taught.  The information about each faculty member will be readily available to the user on the robot’s interface. Faculty members can also change their schedules and information on their personal devices.
+<ol>
+	<li>The system shall utilize the Google Calendar software suite to maintain a schedule of availability for each faculty member.
+	<li>The robot shall be capable of wirelessly accessing the internet. 
+	<li>The robot shall maintain a local copy of faculty schedules.
+	<li>The robot shall update its local copy of faculty schedules once a day before entering operation. 
+	<li>The system shall store a list of faculty members who have offices within the predefined area of operation.
+	<li>The system shall store an email address for each faculty member. 
+	<li>The system shall store a list of courses taught for each faculty member.
 </ol>
+
 <h2>Student Use</h2>
-	When interacting with a user the robot will provide information about a selected faculty member. If desired, the robot will lead the user to the office of that faculty member and notify the user when they have arrived. Then the robot will return to its original location given that there are no obstacles preventing it from doing so. If there are obstacles in the way, the robot will attempt  to go around them. This will cause the robot to avoid injuring humans, damaging property, or damaging itself.
-<ol><li>The robot shall provide requested faculty information to the user.
+	When interacting with a user the robot will provide information about a selected faculty member. If desired, the robot will lead the user to the office of that faculty member and notify the user when they have arrived. Then the robot will return to its original location given that there are no obstacles preventing it from doing so. If there are obstacles in the way, the robot will attempt to go around them. This will cause the robot to avoid injuring humans, damaging property, or damaging itself.
+<ol>
+<li>The robot shall provide requested faculty information to the user.
 <li>The robot shall autonomously travel to a user-specified faculty member’s office upon user request. 
 <li>The robot shall avoid obstacles at least 15 centimeters away.
 <li>The robot shall notify the user when the robot has reached the specified faculty member’s office.
-<li>The robot shall have a designated position to which it shall autonomously return to after guiding the user to a faculty member’s office provided that there are no obstacles preventing the robot to return to its base. 
+<li>The robot shall have a designated position to which it shall autonomously return to after guiding the user to a faculty member’s office provided that there are no obstacles preventing the robot to return to its base.
+<li>If the robot encounters an obstacle, it shall attempt to navigate around the obstacle.
+<li>If the robot cannot navigate around the obstacle, it shall wait a period of 5 seconds before attempting its original route. 
 </ol>
+
 <h2>Safety</h2>
-The robot should be designed to minimize the potential for human injury. If the robot is tipped over the robot should disable its motors and alert the user that it is tipped over. , Once it is picked up, it will automatically resume normal operation. 
-<ol><li>The robot shall not utilize internal combustion as a power source.
+The robot should be designed to minimize the potential for human injury. If the robot is tipped over the robot should disable its motors and alert the user that it is tipped over.  Once it is picked up, it will automatically resume normal operation. 
+<ol>
+<li>The robot shall not utilize internal combustion as a power source.
 		<br/>&#2193;	<i>	The robot will be used indoors, and the byproducts of combustion may be harmful or distracting to faculty or students.</i>
 <li>The robot shall withstand a horizontal force of 25 Newtons at its highest point to prevent being knocked over. 
 		<br/>&#2193;	<i>	25 Newtons is the team’s safe estimate of the force involved in someone bumping into the robot</i>
@@ -61,10 +64,13 @@ The robot should be designed to minimize the potential for human injury. If the 
 <li>The robots on/off switch shall terminate power to all moving parts on the robot when in the off position.
 <li>The robot shall not exceed speeds of 1.4 m/s.
 <li>The robot shall have a maintenance mode.
-<li>During maintenance mode, the robot shall disable its motors to prevent movement. 
+<li>During maintenance mode, the robot shall disable its motors to prevent movement.
 </ol>
+
 <h2>Security</h2>
-	The robot should be designed to be secure and be protected from being remotely controlled. All faculty information should be password protected with a password reset option. 
-<ol><li>The application shall require a password for each faculty member to modify his or her schedule.
+The robot should be designed to be secure and be protected from being remotely controlled. All faculty information should be password protected with a password reset option. 
+<ol>
+<li>The robot shall require a password for each faculty member to modify his or her information.
 <li>The robot shall only accept commands from a wired connection.
-		<br/>&#2193;	<i>	This prevents the robot from being controlled remotely.</i></ol>
+		<br/>&#2193;	<i>	This prevents the robot from being controlled remotely.</i>
+</ol>
